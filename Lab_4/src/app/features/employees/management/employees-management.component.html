@@ -1,0 +1,48 @@
+<div class="row d-flex align-items-center">
+   <div class="col-md-6">
+
+    <div class="row" [formGroup]="filtersGroup">
+      <div class="col-4">
+        <div class="form-floating ">
+          <input class="form-control"
+                 placeholder=""
+                id="floatingTextarea2"
+                formControlName ="search">
+          <label for="floatingTextarea2">Căutare</label>
+        </div>
+      </div>
+      <div class="col-4">
+         <ado-dropdown
+         title="Echipa"
+         [options]="teamList"
+         formControlName = "teamId"></ado-dropdown>
+      </div>
+      <div class="form-floating col-4">
+        <select
+            class="form-select"
+            id="floatingSelect"
+            formControlName ="status">
+           <option value="ACTIVE">Activ</option>
+           <option value="INACTIVE">Inactiv</option>
+         </select>
+         <label for="floatingSelect">Status</label>
+     </div>
+   <employees-list (selectedEmployeeChanged)="setSelectedEmployee($event)"
+     (addEmployee)="onAddEmployee()"
+    [employees]="employeesObs
+    | async
+    | name: filtersGroup.controls['search'].value
+    | status: filtersGroup.controls['status'].value
+    | teamId: filtersGroup.controls['teamId'].value"></employees-list>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <employees-detail
+    *ngIf="showDetailComponent"
+    [employee]="selectedEmployee"
+    (reloadList)="onReloadList($event)"
+    (componentClosed)="onClosedComponent($event)"></employees-detail>
+  </div>
+
+
+</div>

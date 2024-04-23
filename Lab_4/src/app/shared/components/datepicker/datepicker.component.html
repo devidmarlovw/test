@@ -1,0 +1,19 @@
+<div  class="input-date form-floating">
+  <input type="text"
+         class="form-control"
+         id="floatingInputGrid"
+         ngbDatepicker #d="ngbDatepicker"
+         placeholder="Data"
+         [minDate]="minDate"
+         [maxDate]="maxDate"
+         required
+         [ngClass]="selectedValue ? 'date-invalid ng-touched': ''"
+         [disabled]="isDisabled"
+         [(ngModel)]="selectedValue"
+  />
+  <label for="floatingInputGrid">Data</label>
+  <i class="fa-solid fa-calendar-days"
+     [ngClass]="isDisabled ? 'disabled-icon': ''"
+     (click)="!isDisabled ? d.toggle(): ''"></i>
+</div>
+

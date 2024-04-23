@@ -1,0 +1,10 @@
+.table {
+  tbody {
+    height: 350px;
+    overflow-y: auto;
+
+  }
+  thead,tbody, tr, td, th {
+    display:block;
+  }
+}

@@ -1,0 +1,19 @@
+<div class="form-floating">
+
+  <select
+    (clickOutside)="onClickOutside()"
+    (click)="isOpen = !isOpen"
+    [(ngModel)]="selectedOption"
+    (ngModelChange)="onChange($event)"
+    class="form-select"
+    [ngClass]="[isOpen ? 'change' : '', isDisabled ? 'opacity-50' : '']"
+    id="floatingSelect"
+    [disabled]="isDisabled">
+
+    <option *ngFor="let option of options" [value]="option.value">
+            {{ option.label }}
+    </option>
+
+  </select>
+    <label for="floatingSelect">{{ title }}</label>
+</div>

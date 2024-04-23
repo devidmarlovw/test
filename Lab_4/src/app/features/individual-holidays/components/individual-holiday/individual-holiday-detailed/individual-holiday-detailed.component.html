@@ -1,0 +1,98 @@
+<div class="row">
+  <div class="col-xs-4 d-flex">
+    <div
+      class="custom d-flex bg-secondary rounded-pill py-2 px-2 flex-row justify-content-center align-items-center">
+      Zile disponibile:
+      <div class="d-flex justify-content-center align-items-center circle">
+        <div>{{ remainingDays }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<form [formGroup]="formRequest">
+  <div class="pt-10">
+    <ado-dropdown
+      title="Tipul concediului"
+      [options]="vacationTypes"
+      formControlName="typeRequest"></ado-dropdown>
+  </div>
+
+  <div formGroupName="dates" class="row pt-1">
+    <div class="form-floating mb-3 col-md-6">
+      <ado-datepicker
+        title="Data"
+        formControlName="startDate" [minDate]="minDate" [maxDate]="maxDate"></ado-datepicker>
+    </div>
+    <div class="form-floating mb-3 col-md-6">
+      <ado-datepicker
+        title="Data"
+        formControlName="endDate" [minDate]="minDate" [maxDate]="maxDate"></ado-datepicker>
+    </div>
+  </div>
+  <div class="form-floating pt-1">
+    <textarea
+      class="form-control"
+      id="floatingTextarea2"
+      placeholder="Mentiuni(optional)"
+      formControlName="mentions"></textarea>
+    <label for="floatingTextarea2">Mentiuni(optional)</label>
+  </div>
+
+  <div class="pt-3 pb-2" *ngIf="mode === 'view' || mode === 'edit'">
+    <ado-dropdown
+      title="Status"
+      [options]="statusTypes"
+      formControlName="status"></ado-dropdown>
+  </div>
+
+  <div
+    class="form-floating pt-1"
+    *ngIf="mode === 'view' && formRequest.value['status'] === 'REJECTED'">
+    <textarea
+      class="form-control"
+      id="floatingTextarea"
+      formControlName="motive"></textarea>
+    <label for="floatingTextarea">Motivul refuzului</label>
+  </div>
+  <div class="d-flex mt-6 flex-row-reverse">
+    <button
+      *ngIf="mode === 'add'"
+      class="btn btn-success mx-1"
+      (click)="onAddRequest()">
+      Adaugare
+    </button>
+    <button
+      *ngIf="mode === 'view'"
+      class="btn btn-danger mx-1"
+      (click)="onDeleteRequest()"
+      [disabled]="!selectedLeaveRequest">
+      Stergere
+    </button>
+    <button
+      *ngIf="mode === 'view'"
+      class="btn btn-secondary mx-1"
+      (click)="onEdit()"
+      [disabled]="!selectedLeaveRequest">
+      Editare
+    </button>
+    <button
+      *ngIf="mode === 'view'"
+      class="btn btn-success mx-1"
+      (click)="onMoveToNewRequest()">
+      Cerere noua
+    </button>
+    <button
+      *ngIf="mode === 'edit'"
+      class="btn btn-success mx-1"
+      (click)="onSave()">
+      Salvare
+    </button>
+    <button
+      *ngIf="mode === 'edit' || mode === 'add'"
+      class="btn btn-danger mx-1"
+      (click)="onCancel()">
+      Anulare
+    </button>
+  </div>
+</form>
+<app-toasts-container></app-toasts-container>

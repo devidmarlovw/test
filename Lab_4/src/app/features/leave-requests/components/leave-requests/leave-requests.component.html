@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-9">
+      <div class="d-flex flex-row mb-3 gap-3">
+<div class="custom gap-3">
+  <ado-datepicker></ado-datepicker>
+  <ado-datepicker></ado-datepicker>
+</div>
+
+        <div class="form-floating">
+          <select class="form-select" id="floatingSelect">
+            <option selected>Toate cererile</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+          </select>
+          <label for="floatingSelect">Status</label>
+        </div>
+        <div class="form-floating">
+          <select class="form-select" id="floatingSelect2">
+            <option selected>Toate cererile</option>
+            <option>Medical</option>
+            <option>Legally Days Off</option>
+            <option>Vacanta</option>
+          </select>
+          <label for="floatingSelect2">Tip</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="Text" class="form-control" id="floatingInput" placeholder="Cautare">
+          <label for="floatingInput">Cautare</label>
+        </div>
+      </div>
+      <ado-leave-requests-list [leaveRequests]="leaveRequests" (leaveRequestSelected)="setSelectedLeaveRequest($event)"></ado-leave-requests-list>
+
+    </div>
+    <div class="col-3">
+      <ado-leave-requests-detail [selectedLeaveRequest]="selectedLeaveRequest"></ado-leave-requests-detail>
+    </div>
+</div>
+
+

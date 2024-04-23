@@ -1,0 +1,14 @@
+ <div class="toast-container">
+    <ngb-toast class="custom" *ngIf="toastService.toastSubject$ | async" [autohide]="false" [delay]="5000" [header]="null">
+      <ng-template [ngIf]="toastService.toastSubject$ | async" let-toast>
+        <div [class]="'toast ' + 'bg-' + toast.type" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-body">
+            <div>
+              <i [class]="'fas ' + getIconClass(toast.type)"></i> {{ toast.message }}
+            </div>
+            <i class="fa fa-times btn-bclose"  aria-label="Close" (click)="toastService.remove()"></i>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-toast>
+  </div>

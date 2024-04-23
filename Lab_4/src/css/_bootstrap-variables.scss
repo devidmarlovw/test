@@ -1,0 +1,256 @@
+/*
+* Bootstrap customisation https://getbootstrap.com/docs/5.1/customize/overview/
+* All values defined in bootstrap source
+* https://github.com/twbs/bootstrap-npm-starter/blob/v5/scss/starter.scss can be overwritten here
+* Make sure not to add !default to values here
+*/
+
+// Color system
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
+
+// TODO DO we need this?
+$grayscale-input: #fbfdff;
+$grayscale-bg: #f6f8fc;
+$grayscale-line: #d5deeb;
+$grayscale-placeholder: #97a1bb;
+$grayscale-label: #6a7797;
+$grayscale-body: #343f5e;
+$grayscale-navy: #222754;
+$grayscale-dark-4b: #001447;
+
+$primary: #89133d;
+$secondary: #4d57ab;
+$tertiary: #47b1fe;
+$success: #008a3f;
+$info: $tertiary;
+$warning: #ffd456;
+$danger: #be161d;
+$light: #eff0f6;
+$dark: #051643;
+$transparent: transparent;
+
+$theme-colors: (
+  'primary': $primary,
+  'secondary': $secondary,
+  'success': $success,
+  'info': $info,
+  'warning': $warning,
+  'danger': $danger,
+  'light': $light,
+  'dark': $dark,
+  'transparent': $transparent,
+);
+
+$primary-bg: #e8d4d5;
+$primary-light: #ce9fa2;
+$primary-darkmode: #ba6f76;
+$primary-dark: #70012a;
+
+$secondary-bg: #ebeeff;
+$secondary-light: #e6e9ff;
+$secondary-darkmode: #c6ccff;
+$secondary-dark: #293c7d;
+
+$gray-bg: $gray-100;
+$gray-light: $gray-300;
+$gray-darkmode: $gray-500;
+$gray-dark: $gray-900;
+
+$tertiary-bg: #e7f2f9;
+$tertiary-light: #d4e9f9;
+$tertiary-darkmode: #addcff;
+$tertiary-dark: #0084e3;
+
+$success-bg: #def9e4;
+$success-light: #c5ffc7;
+$success-darkmode: #a1e39f;
+$success-dark: #06732b;
+
+$warning-bg: #fff3cf;
+$warning-light: #ffedb7;
+$warning-darkmode: #ffe187;
+$warning-dark: #997408;
+
+$danger-bg: #fde8e9;
+$danger-light: #fabbbd;
+$danger-darkmode: #de444a;
+$danger-dark: #8e1116;
+
+
+$transparent-bg: transparent;
+$transparent-light: transparent;
+$transparent-dark: transparent;
+$transparent-darkmode: transparent;
+
+$custom-colors: (
+  'tertiary': $tertiary,
+  'gray': $gray-700,
+  'primary-light': $primary-light,
+  'primary-dark': $primary-darkmode,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+$transparent-light-95: rgba($light, 0.95);
+$transparent-light-75: rgba($light, 0.75);
+$transparent-light-65: rgba($light, 0.65);
+$transparent-light-40: rgba($light, 0.4);
+$transparent-light-25: rgba($light, 0.25);
+$transparent-light-10: rgba($light, 0.1);
+
+$transparent-dark-95: rgba($dark, 0.95);
+$transparent-dark-75: rgba($dark, 0.75);
+$transparent-dark-65: rgba($dark, 0.65);
+$transparent-dark-40: rgba($dark, 0.4);
+$transparent-dark-25: rgba($dark, 0.25);
+$transparent-dark-10: rgba($dark, 0.1);
+
+/**********************************************************************************************/
+
+// Options:
+$enable-shadows: true;
+$enable-negative-margins: true;
+//$enable-important-utilities: false; // Enables the !important suffix in utility classes
+
+// Body:
+$body-bg: $grayscale-bg;
+$body-color: $grayscale-dark-4b;
+
+// Links
+$link-color: $gray-700;
+$link-decoration: none;
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  // 4
+  2: $spacer * 0.5,
+  // 8
+  3: $spacer,
+  // 16px
+  4: $spacer * 1.5,
+  // 24
+  5: $spacer * 2,
+  // 32
+  6: $spacer * 2.5,
+  // 40
+  7: $spacer * 3,
+  // 48
+  8: $spacer * 3.5,
+  // 56
+  9: $spacer * 4,
+  // 64
+  10: $spacer * 4.5 // 72,,,,,,,,,,,,,,,,,,,,,,,,
+);
+
+// Grid breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 1024px,
+  lg: 1280px,
+  xl: 1536px,
+);
+
+// Grid containers
+$container-max-widths: (
+  sm: 512px,
+  md: 928px,
+  lg: 1168px,
+  xl: 1408px,
+);
+
+// Grid columns
+$grid-gutter-width: $spacer * 1.5; // 24px, default padding for all child elements of .row class, usually .col
+// Container padding
+$container-padding-x: 0; // minimum space between the container element and the screen edges
+
+// Components:
+$border-radius-sm: 0.25rem; // 4
+$border-radius: 0.75rem; // 12px
+$border-radius-lg: 1.25rem; // 20px
+
+// Typography:
+$font-family-sans-serif: 'PT Sans', sans-serif;
+$font-family-serif: 'Meta Serif Pro', serif;
+$font-family-amount: 'Poppins', sans-serif;
+
+// These are line-heights and "-sm" and "-lg" are not relative to "-base"
+$line-height-base: 1.4;
+$line-height-sm: 1.1;
+$line-height-lg: 1.25;
+
+$font-size-base: 1rem;
+$h1-font-size: $font-size-base * 1.875; // 30px
+$h2-font-size: $font-size-base * 1.562; // 25px
+$h3-font-size: $font-size-base * 1.437; // 23px
+$h4-font-size: $font-size-base * 1.1875; // 19px
+$h5-font-size: $font-size-base; // 16px
+$h6-font-size: $font-size-base * 0.875; // 14px
+
+$headings-font-weight: 700;
+$headings-line-height: $line-height-lg;
+
+$display-font-sizes: (
+  1: 4.687rem,
+  // 75px
+  2: 3.937rem,
+  // 63px
+  3: 3.25rem,
+  // 52px
+  4: 2.75rem,
+  // 44px
+  5: 2.25rem,
+  // 36px
+  6: 1.875rem,
+  // 30px
+  7: 1.562rem,
+  // 25px
+);
+
+$display-font-weight: 500;
+$display-line-height: $line-height-sm;
+
+// Buttons
+$btn-border-radius-sm: $border-radius-sm * 2;
+$btn-border-radius: $border-radius;
+$btn-border-radius-lg: $border-radius;
+$btn-padding-y: 5px;
+$btn-padding-x: 15px;
+$btn-border-width: 2px;
+$btn-active-bg-shade-amount: 15%;
+$btn-active-bg-tint-amount: 15%;
+$btn-hover-bg-shade-amount: 10%;
+$btn-hover-bg-tint-amount: 10%;
+$btn-font-size-sm: 0.7rem;
+
+// Dropdowns
+$dropdown-box-shadow: none;
+
+// Breadcrumbs
+$breadcrumb-divider: quote('>');
+
+// Close
+$btn-close-focus-shadow: none;
+
+// Navbar
+//$nav-link-color: $gray-700;
+$nav-link-font-weight: 700;
+$nav-link-font-size: 18px;
+$nav-pills-link-active-bg: $primary;
+$nav-pills-border-radius: 50rem;
+$navbar-nav-link-padding-x: map-get($spacers, 4);
+
+$form-spacing-height: 1.5rem;

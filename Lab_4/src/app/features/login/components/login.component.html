@@ -1,0 +1,39 @@
+<div class="row d-flex justify-content-center">
+  <div class="card col-8 mb-3 ">
+    <div class="row">
+      <div class="col-md-6 img-fluid img-container bg-primary d-flex justify-content-center align-items-center">
+        <img src="../../../../assets/logo.png" class=" rounded-start" alt="...">
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h1 class="text-center">Bine ai venit!</h1>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-floating form-group m-3">
+              <input
+                     formControlName="username"
+                     type="text"
+                     id="FloatingInput"
+                     class="form-control"
+                     placeholder="Nume de utilizator">
+              <label for="FloatingInput">Nume de utilizator</label>
+              <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">Introduceti un nume de utilizator corect</span>
+            </div>
+            <div class="form-floating form-group m-3">
+              <input
+                     formControlName="password"
+                     type="password"
+                     id="password floatingPassword"
+                     class="form-control"
+                     placeholder="Parola">
+              <label for="password floatingPassword">Parola</label>
+              <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Introduceți o parolă validă</span>
+            </div>
+            <div class="form-group text-center">
+              <button [disabled]="!loginForm.valid" type="submit" class="btn btn-primary m-3 px-5" >Autentificare</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

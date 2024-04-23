@@ -1,0 +1,24 @@
+ <ul *ngIf="selectedLeaveRequest" class="list-group">
+    <li class="list-group-item active">Cerere concediu: {{ selectedLeaveRequest?.startDate }} - {{ selectedLeaveRequest?.endDate }}</li>
+    <li class="list-group-item">Nume angajat: {{ selectedLeaveRequest?.employeeDetails.firstName }} {{ selectedLeaveRequest?.employeeDetails.lastName }}</li>
+    <li class="list-group-item">Data creare: {{ selectedLeaveRequest?.crtTms | date }}</li>
+    <li class="list-group-item">Data editare: {{ selectedLeaveRequest?.mdfTms | date }}</li>
+    <li class="list-group-item">Perioada: {{ selectedLeaveRequest?.startDate }} - {{ selectedLeaveRequest?.endDate }} </li>
+    <li class="list-group-item">Zile concediu: {{ selectedLeaveRequest?.noOfDays }}</li>
+    <li class="list-group-item">Status:
+        <ng-container *ngIf="selectedLeaveRequest?.status === 'APPROVED'">
+            <i class="fas fa-square-check"></i> Approved
+        </ng-container>
+        <ng-container *ngIf="selectedLeaveRequest?.status === 'REJECTED'">
+            <i class="fas fa-square-xmark"></i> Rejected
+        </ng-container>
+        <ng-container *ngIf="selectedLeaveRequest?.status === 'PENDING'">
+            <i class="fas fa-square-arrow-up-right"></i> Pending
+        </ng-container>
+            <div *ngIf="selectedLeaveRequest?.status === 'PENDING'" class="d-flex justify-content-end">
+            <button type="button" class="btn-success btn mx-2" (click)="onclickaccept()"> Aproba </button>
+            <button type="button" class="btn-failure btn mx-2" (click)="onclickreject()"> Refuza </button>
+            </div>
+    </li>
+</ul>
+

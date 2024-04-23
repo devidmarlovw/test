@@ -1,0 +1,18 @@
+.input-date{
+  position:relative;
+}
+.fa-calendar-days{
+  position: absolute;
+  right: 20px;
+  top: 35%;
+}
+.disabled-icon{
+  opacity: 20%;
+}
+
+:host.invalidRemainingDays{
+  input{
+    border: 2px solid red;
+    color: red;
+  }
+}

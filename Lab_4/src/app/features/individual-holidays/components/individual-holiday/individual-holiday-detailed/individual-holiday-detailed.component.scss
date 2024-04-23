@@ -1,0 +1,21 @@
+.circle {
+  width: 2rem;
+  height: 2rem;
+  background: #00ac4e;
+  border-radius: 50%;
+  margin-left: 8px;
+}
+.custom{
+  color: white;
+  font-size: 14px;
+}
+textarea{
+  resize: vertical;
+  max-height: 170px;
+}
+.btn-success{
+  color: #fff;
+}
+.form-select, .form-floating label{
+  color: #495057;
+}

@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="row"
+  *ngIf="mode !== 'add'">
+    <div class="col-md-8 mt-1">
+      <button class="btn btn-danger"
+        (click)="deleteEmployee()">
+
+        <i class="fa-solid fa-user-minus"></i>
+         Inactivare angajati</button>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-2 mt-1">
+      <button
+      class="btn btn-primary align-right"
+      (click)="changeMode()">
+        <i class="fa-solid fa-pen-to-square"></i>
+      </button>
+    </div>
+  </div>
+
+
+  <form [formGroup]="form"  class="row">
+    <div>
+      <input type="hidden" formControlName="id">
+    </div>
+    <div class="col-lg-6  mt-1">
+      <div class="form-floating mt-3">
+        <input formControlName="lastname" class="form-control" id="floatingTextarea2" >
+        <label for="floatingTextarea2">Nume</label>
+      </div>
+
+    </div>
+    <div class="col-lg-6 mt-1">
+      <div class="form-floating mt-3">
+        <input formControlName="firstname" class="form-control"  id="floatingTextarea2" >
+        <label for="floatingTextarea2">Prenume</label>
+      </div>
+    </div>
+    <div class="col-lg-6  mt-3">
+      <div class="form-floating ">
+        <input formControlName="username" class="form-control" id="floatingTextarea2" >
+        <label for="floatingTextarea2">Nume utilizator</label>
+      </div>
+    </div>
+    <div class="col-lg-6 mt-3">
+        <div class="form-floating ">
+          <input formControlName="email" required="Email" class="form-control" id="floatingTextarea2" >
+          <label for="floatingTextarea2">Email</label>
+        </div>
+    </div>
+    <div class="col-lg-6  mt-3">
+      <ado-dropdown
+        title="Rol"
+        [options]="roles"
+        formControlName="role"></ado-dropdown>
+    </div>
+    <div class="col-lg-6 mt-3">
+      <ado-dropdown
+        title="Echipa"
+        [options]="teams"
+        formControlName="teamId"></ado-dropdown>
+    </div>
+
+      <div class="col-lg-6 mt-3">
+
+          <ado-datepicker formControlName="contractStartDate"></ado-datepicker>
+
+      </div>
+      <div class="col-lg-6 mt-3">
+        <div class="form-floating ">
+          <input formControlName="noDaysOff" class="form-control"  id="floatingTextarea2">
+          <label for="floatingTextarea2">Număr zile concediu</label>
+        </div>
+        <div class="d-flex mt-3 flex-row-reverse">
+          <button
+          class="btn btn-success"
+          (click)="onSubmit()"
+          type="button">Salvează</button>
+          <button class="btn btn-secondary mx-3"
+          (click)="onCancel()"
+          type="button">Închide</button>
+        </div>
+        </div>
+
+  </form>
+  <app-toasts-container></app-toasts-container>
+
+</div>

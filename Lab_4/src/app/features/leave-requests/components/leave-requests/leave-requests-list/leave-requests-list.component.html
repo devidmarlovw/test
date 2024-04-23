@@ -1,0 +1,47 @@
+<table class="table">
+    <thead class="table table-fixed table-bordered rounded-top overflow-hidden">
+    <tr class="header-row bg-dark text-light" >
+        <th scope="col">Nume</th>
+        <th scope="col">Tip</th>
+        <th scope="col">Perioada</th>
+        <th scope="col">Status</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr (click)="onSelectedLeaveRequest(leaveRequest)"
+        *ngFor=" let leaveRequest of leaveRequests ">
+        <td>{{leaveRequest.employeeDetails.firstName }} {{leaveRequest.employeeDetails.lastName}}</td>
+        <td><i [ngClass]="leaveRequest.type==='MEDICAL' ? 'fa-suitcase-medical' : 'fa-plane'" class="fas"></i></td>
+        <td>{{leaveRequest.startDate}}-{{leaveRequest.endDate}}</td>
+        <td>
+            <i *ngIf="leaveRequest.status==='APPROVED' " class="fas fa-square-check"></i>
+            <i *ngIf="leaveRequest.status==='REJECTED' " class="fas fa-square-xmark"></i>
+            <i *ngIf="leaveRequest.status==='PENDING' " class="fas fa-square-arrow-up-right"></i>
+        </td>
+    </tr>
+
+    </tbody>
+
+  <tbody *ngIf="!leaveRequests || leaveRequests.length === 0">
+  <tr>
+    <td colspan="4">Niciun concediu găsit.</td>
+  </tr>
+  </tbody>
+</table>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>

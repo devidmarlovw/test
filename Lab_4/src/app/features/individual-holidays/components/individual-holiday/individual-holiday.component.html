@@ -1,0 +1,15 @@
+<div class="row d-flex align-items-center">
+  <div class="col-4">
+    <ado-individual-holiday-detailed
+      [selectedPeriod]="selectedPeriod"
+      (individualHolidaysUpdate)="onRefresh($event)"
+      [selectedLeaveRequest]="selectedItem"></ado-individual-holiday-detailed>
+  </div>
+  <div class="col-8">
+    <ado-individual-holiday-calendar
+      [items]="requests"
+      (selectedDateRange)="handleSelectedDateRange($event)"
+      (selectedEventId)="getRequestById($event)">
+    </ado-individual-holiday-calendar>
+  </div>
+</div>
